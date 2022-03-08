@@ -11,7 +11,6 @@ import { useEffect } from "react";
 
 const initialFValues = {
   id: 0,
-  DateP: new Date(),
   DateE: new Date(),
   BanquePopulaire: "",
   Radical: "",
@@ -111,13 +110,6 @@ export default function DocumentForm(props) {
             onChange={handleInputChange}
             options={DocumentSelect.getDuree()}
             error={errors.Duree}
-          />
-          <DatePicker
-            name="DateP"
-            label="Date de paiment"
-            value={values.DateP}
-            onChange={handleInputChange}
-            minDate={values.DateE}
           />
         </Grid>
       </Grid>

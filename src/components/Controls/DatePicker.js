@@ -1,31 +1,22 @@
 import React from "react";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+
 
 export default function DatePicker(props) {
-  const { name, label, value, onChange, minDate } = props;
-  const convertToDefEventPara = (name, value) => ({
-    target: {
-      name,
-      value,
-    },
-  });
+  const { name, label, value, onChange } = props;
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker
-        disableToolbar
-        variant="inline"
-        inputVariant="outlined"
-        label={label}
-        format="dd/MM/yyyy"
+    <Stack component="form" noValidate spacing={3}>
+      <TextField
+label={label}
         name={name}
         value={value}
-        onChange={(date) => onChange(convertToDefEventPara(name, date))}
-        minDate={minDate}
+onChange={onChange}
+        type="date"
+        sx={{ width: 220 }}
+        InputLabelProps={{
+          shrink: true,
+        }}
       />
-    </MuiPickersUtilsProvider>
-  );
+</Stack>  );
 }
